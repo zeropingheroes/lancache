@@ -1,1 +1,0 @@
-limit_conn_zone $server_name zone=perserver:10m;
