@@ -1,17 +1,12 @@
 # Blizzard Node
 include lancache/resolver;
 
-# Blizzard downloader:
-# * Uses a single archive file with random range requests.
-#   To combat this we use proxy_cachable_range instead of http_range which rewrites
-#   the ranges so they are predicable.
-# * Mainly uses 1048576 byte requests but ranges overlap quite a bit so we use the
-#   same size as Origin.
 location / {
-	range_cache_size 16777216;
-	proxy_set_header Range $range_cache_range;
-	proxy_hide_header Etag;
-	proxy_cache_key "$server_name$request_uri $range_cache_range";
+	# Some downloads are very large so we cache based on range to keep
+	# single downloads quick and hence ensure interactivity is good.
+	proxy_set_header Range $http_range;
+	proxy_set_header If-Range $http_if_range;
+	proxy_cache_key "$server_name$request_uri $http_range";
 	proxy_cache_valid 206 90d;
 	include lancache/cache-installs;
 }

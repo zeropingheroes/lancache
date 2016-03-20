@@ -1,2 +1,2 @@
-include lancache/cache-installs-base;
-proxy_pass http://$host$request_uri;
+proxy_cache installs;
+include lancache/proxy-cache;

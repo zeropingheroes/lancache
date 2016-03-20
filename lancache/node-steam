@@ -19,7 +19,6 @@ location /serverlist/ {
 	proxy_store /data/www/cache/steam$uri/servers.txt;
 	proxy_store_access user:rw group:rw all:r;
 	include lancache/proxy-base;
-	proxy_pass http://$host$request_uri;
 }
 
 location / {

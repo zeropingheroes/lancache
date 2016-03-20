@@ -1,2 +1,3 @@
 # Google and Level3's public DNS servers
+# Disable IPv6 as our ISP does not have IPv6 support yet
 resolver 8.8.8.8 4.2.2.2 ipv6=off;

@@ -24,12 +24,3 @@ proxy_cache_bypass $arg_nocache;
 # 40G max file
 proxy_max_temp_file_size 40960m;
 
-# Purging
-#
-# Commercial subscription method:
-# * Triggers off the HTTP header X-Cache-Purge
-#proxy_cache_purge $http_x_cache_purge;
-#
-# ngx_cache_purge method:
-# * Triggers off the HTTP method PURGE
-proxy_cache_purge PURGE from all;

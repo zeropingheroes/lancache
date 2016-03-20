@@ -1,0 +1,17 @@
+# Black Desert Online Node
+include lancache/resolver;
+
+location ~* ^.*/game/download {
+	include lancache/cache-installs;
+}
+
+location ~* ^.*/game/patch {
+	slice 1m;
+	proxy_set_header Range $slice_range;
+	proxy_http_version 1.1;
+	include lancache/cache-installs;
+}
+
+location / {
+        include lancache/proxy-base;
+}

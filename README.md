@@ -4,17 +4,10 @@ Dynamically Cache Game Installs at LAN’s using [Nginx](http://nginx.org/)
 # Requirements
 Due to the features used in this configuration it requires
 * [nginx 1.6.0+](http://nginx.org/).
-* range_cache module (unreleased watch this space)
 
 # Nginx Configuration
 In order to make the configuration more maintainable we’ve split the config up in to a number of smaller includes.
 
-## machines/lancache-single.conf
-In the machines directory you have `lancache-single.conf` which is the main `nginx.conf` file that sets up the events and http handler as well as the key features via includes: custom log format, cache definition and active vhosts.
-```nginx
-include lancache/log_format;
-include lancache/caches;
-include vhosts/*.conf;
 ```
 ## lancache/log_format
 The custom log format adds three additional details to the standard combined log format `“$upstream_cache_status” “$host” “$http_range”`. These are useful for determine the efficiency of each segment the cache.
@@ -76,17 +69,6 @@ Finally the catch all / entry caches all other items according to the their head
 ## lancache/node-default
 This is the default which is used for riot, hirez and sony it uses standard caching rules which caches based on the `proxy_cache_key "$server_name$request_uri"`
 
-# Required DNS entries
-All of the required DNS entries are for each service are documented their block server in `sites/lancache-single.conf`.
-
-You’ll notice that each entry starts with `lancache-XXXX` this is entry used in the listen directive so no editing of the config is required for IP allocation to each service. As we’re creating multiple server entries and each is capturing hostnames using the `_` wildcard each service must have its own IP e.g.
-```
-lancache-steam = 10.10.100.100
-lancache-riot = 10.10.100.101
-lancache-blizzard = 10.10.100.102
-lancache-hirez = 10.10.100.103
-lancache-origin = 10.10.100.104
-lancache-sony = 10.10.100.105
 ```
 # LANcache @ [Insomnia 55](https://insomniagamingfestival.com/)
 ## Hardware Specification
