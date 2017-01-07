@@ -1,2 +1,0 @@
-proxy_cache installs;
-include lancache/proxy-cache;

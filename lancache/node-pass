@@ -1,6 +1,0 @@
-# PassThrough Node
-include lancache/resolver;
-
-location / {
-	include lancache/proxy-base;
-}
