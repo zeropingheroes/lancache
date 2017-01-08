@@ -3,6 +3,13 @@ Automatically cache game files at LAN parties using [Nginx](http://nginx.org/) a
 
 Forked from [Lochnair/lancache](https://github.com/Lochnair/lancache)
 
+# Requirements
+Tested on Ubuntu 16.04
+
+# Installation
+
+`mkdir /etc/nginx && cd /etc/nginx && git clone https://github.com/zeropingheroes/lancache.git .`
+
 # Required DNS Entries
 
 ## Steam
