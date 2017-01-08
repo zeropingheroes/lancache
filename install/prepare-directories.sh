@@ -1,11 +1,20 @@
 #!/bin/bash
 set -e # abort script if there is an error
 
-PATH_CACHE_DATA="/srv/cache/data"
-PATH_NGINX_CONFIG="/etc/nginx"
+PATH_CACHE="/var/lancache/"
+PATH_CONFIG="/etc/nginx"
+PATH_LOGS="/var/lancache/logs"
 WWW_USER="www-data"
 
-mkdir -p $PATH_CACHE_DATA
-chown -R $WWW_USER:$WWW_USER $PATH_CACHE_DATA
+echo "Creating cache data directory"
+mkdir -p $PATH_CACHE
+cd $PATH_CACHE
+mkdir installs other tmp
 
-chown -R $WWW_USER:$WWW_USER $PATH_NGINX_CONFIG 
+echo "Creating logs directory"
+mkdir -p $PATH_LOGS
+
+echo "Setting permissions"
+chown -R $WWW_USER:$WWW_USER $PATH_CACHE
+chown -R $WWW_USER:$WWW_USER $PATH_LOGS
+chown -R $WWW_USER:$WWW_USER $PATH_CONFIG
