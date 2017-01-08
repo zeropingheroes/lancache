@@ -9,21 +9,27 @@ Tested on Ubuntu 16.04
 # Installation
 
 Enter an interative superuser shell:
+
 `sudo -i`
 
 Create the Nginx config directory:
+
 `mkdir /etc/nginx && cd /etc/nginx`
 
 Clone this repository into it:
+
 `git clone https://github.com/zeropingheroes/lancache.git .`
 
-Make all the scripts in the install directory executable
+Make all the scripts in the install directory executable:
+
 `chmod -R +x /etc/nginx/install/`
 
 Compile Nginx from source:
+
 `/etc/nginx/install/compile-nginx.sh`
 
 Prepare directories:
+
 `/etc/nginx/install/prepare-directories.sh`
 
 # Required DNS Entries
