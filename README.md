@@ -23,8 +23,8 @@ Make all the scripts in the install directory executable
 Compile Nginx from source:
 `/etc/nginx/install/compile-nginx.sh`
 
-Create the cache directory:
-`/etc/nginx/install/create-cache-directory.sh`
+Prepare directories:
+`/etc/nginx/install/prepare-directories.sh`
 
 # Required DNS Entries
 
