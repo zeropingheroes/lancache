@@ -107,3 +107,52 @@ iface eth0:4 inet static
 ## Windows Update
 - *.windowsupdate.com
 - *.dl.delivery.mp.microsoft.com
+
+# Example Unbound Config
+Change IP addresses to match the IP aliases defined during install
+```
+server:
+
+# Steam
+local-data: "lancache-steam A 10.1.1.200"
+local-data: "content1.steampowered.com A 10.1.1.200"
+local-data: "content2.steampowered.com A 10.1.1.200"
+local-data: "content3.steampowered.com A 10.1.1.200"
+local-data: "content4.steampowered.com A 10.1.1.200"
+local-data: "content5.steampowered.com A 10.1.1.200"
+local-data: "content6.steampowered.com A 10.1.1.200"
+local-data: "content7.steampowered.com A 10.1.1.200"
+local-data: "content8.steampowered.com A 10.1.1.200"
+local-data: "content-origin.steampowered.com A 10.1.1.200"
+local-data: "client-download.steampowered.com A 10.1.1.200"
+local-zone: "cs.steampowered.com" redirect
+local-data: "cs.steampowered.com A 10.1.1.200"
+local-zone: "steamcontent.com" redirect
+local-data: "steamcontent.com A 10.1.1.200"
+local-zone: "hsar.steampowered.com.edgesuite.net" redirect
+local-data: "hsar.steampowered.com.edgesuite.net A 10.1.1.200"
+local-zone: "akami.steamstatic.com" redirect
+local-data: "akami.steamstatic.com A 10.1.1.200"
+
+# Riot
+local-data: "lancache-riot A 10.1.1.201"
+local-data: "l3cdn.riotgames.com A 10.1.1.201"
+local-data: "worldwide.l3cdn.riotgames.com A 10.1.1.201"
+
+# Blizzard
+local-data: "lancache-blizzard A 10.1.1.202"
+local-data: "dist.blizzard.com.edgesuite.net A 10.1.1.202"
+local-data: "llnw.blizzard.com A 10.1.1.202"
+local-data: "dist.blizzard.com A 10.1.1.202"
+
+# Sony
+local-data: "lancache-sony A 10.1.1.203"
+local-data: "pls.patch.station.sony.com A 10.1.1.203"
+
+# Windows Update
+local-data: "lancache-winupdate A 10.1.1.204"
+local-zone: "windowsupdate.com" redirect
+local-data: "windowsupdate.com A 10.1.1.204"
+local-zone: "dl.delivery.mp.microsoft.com" redirect
+local-data: "dl.delivery.mp.microsoft.com A 10.1.1.204"
+```
