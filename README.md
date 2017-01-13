@@ -32,6 +32,47 @@ Prepare directories:
 
 `/etc/nginx/install/prepare-directories.sh`
 
+Add alias IPs to server's network interface:
+
+`nano /etc/networking/interfaces`
+
+```
+# Change eth0 to your network interface name
+# Change IP addresses to addresses inside your network
+auto eth0
+iface eth0 inet static
+        address 10.1.1.250
+        netmask 255.255.255.0
+        gateway 10.1.1.1
+        dns-nameservers 10.1.1.1
+auto eth0:0
+iface eth0:0 inet static
+        address 10.1.1.200
+        netmask 255.255.255.0
+        dns-nameservers 10.1.1.1
+
+auto eth0:1
+iface eth0:1 inet static
+        address 10.1.1.201
+        netmask 255.255.255.0
+        dns-nameservers 10.1.1.1
+auto eth0:2
+iface eth0:2 inet static
+        address 10.1.1.202
+        netmask 255.255.255.0
+        dns-nameservers 10.1.1.1
+auto eth0:3
+iface eth0:3 inet static
+        address 10.1.1.203
+        netmask 255.255.255.0
+        dns-nameservers 10.1.1.1
+auto eth0:4
+iface eth0:4 inet static
+        address 10.1.1.204
+        netmask 255.255.255.0
+        dns-nameservers 10.1.1.1
+```
+
 # Required DNS Entries
 
 ## Steam
