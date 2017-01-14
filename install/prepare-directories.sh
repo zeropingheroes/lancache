@@ -6,15 +6,15 @@ PATH_CONFIG="/etc/nginx"
 PATH_LOGS="/var/lancache/logs"
 WWW_USER="www-data"
 
-echo "Creating cache data directory"
+echo "Creating cache data directory: $PATH_CACHE"
 mkdir -p $PATH_CACHE
 cd $PATH_CACHE
 mkdir installs other tmp
 
-echo "Creating logs directory"
+echo "Creating logs directory: $PATH_LOGS"
 mkdir -p $PATH_LOGS
 
-echo "Setting permissions"
+echo "Changing owner of directories to $WWW_USER"
 chown -R $WWW_USER:$WWW_USER $PATH_CACHE
 chown -R $WWW_USER:$WWW_USER $PATH_LOGS
 chown -R $WWW_USER:$WWW_USER $PATH_CONFIG
