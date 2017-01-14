@@ -32,47 +32,6 @@ Prepare directories:
 
 `/etc/nginx/install/prepare-directories.sh`
 
-Add alias IPs to server's network interface:
-
-`nano /etc/networking/interfaces`
-
-```
-# Change eth0 to your network interface name
-# Change IP addresses to addresses inside your network
-auto eth0
-iface eth0 inet static
-        address 10.1.1.250
-        netmask 255.255.255.0
-        gateway 10.1.1.1
-        dns-nameservers 10.1.1.1
-auto eth0:0
-iface eth0:0 inet static
-        address 10.1.1.200
-        netmask 255.255.255.0
-        dns-nameservers 10.1.1.1
-
-auto eth0:1
-iface eth0:1 inet static
-        address 10.1.1.201
-        netmask 255.255.255.0
-        dns-nameservers 10.1.1.1
-auto eth0:2
-iface eth0:2 inet static
-        address 10.1.1.202
-        netmask 255.255.255.0
-        dns-nameservers 10.1.1.1
-auto eth0:3
-iface eth0:3 inet static
-        address 10.1.1.203
-        netmask 255.255.255.0
-        dns-nameservers 10.1.1.1
-auto eth0:4
-iface eth0:4 inet static
-        address 10.1.1.204
-        netmask 255.255.255.0
-        dns-nameservers 10.1.1.1
-```
-
 # Required DNS Entries
 
 ## Steam
@@ -109,50 +68,45 @@ iface eth0:4 inet static
 - *.dl.delivery.mp.microsoft.com
 
 # Example Unbound Config
-Change IP addresses to match the IP aliases defined during install
+Change IP address `10.1.1.250` to your server's IP address
 ```
 server:
 
 # Steam
-local-data: "lancache-steam A 10.1.1.200"
-local-data: "content1.steampowered.com A 10.1.1.200"
-local-data: "content2.steampowered.com A 10.1.1.200"
-local-data: "content3.steampowered.com A 10.1.1.200"
-local-data: "content4.steampowered.com A 10.1.1.200"
-local-data: "content5.steampowered.com A 10.1.1.200"
-local-data: "content6.steampowered.com A 10.1.1.200"
-local-data: "content7.steampowered.com A 10.1.1.200"
-local-data: "content8.steampowered.com A 10.1.1.200"
-local-data: "content-origin.steampowered.com A 10.1.1.200"
-local-data: "client-download.steampowered.com A 10.1.1.200"
+local-data: "content1.steampowered.com A 10.1.1.250"
+local-data: "content2.steampowered.com A 10.1.1.250"
+local-data: "content3.steampowered.com A 10.1.1.250"
+local-data: "content4.steampowered.com A 10.1.1.250"
+local-data: "content5.steampowered.com A 10.1.1.250"
+local-data: "content6.steampowered.com A 10.1.1.250"
+local-data: "content7.steampowered.com A 10.1.1.250"
+local-data: "content8.steampowered.com A 10.1.1.250"
+local-data: "content-origin.steampowered.com A 10.1.1.250"
+local-data: "client-download.steampowered.com A 10.1.1.250"
 local-zone: "cs.steampowered.com" redirect
-local-data: "cs.steampowered.com A 10.1.1.200"
+local-data: "cs.steampowered.com A 10.1.1.250"
 local-zone: "steamcontent.com" redirect
-local-data: "steamcontent.com A 10.1.1.200"
+local-data: "steamcontent.com A 10.1.1.250"
 local-zone: "hsar.steampowered.com.edgesuite.net" redirect
-local-data: "hsar.steampowered.com.edgesuite.net A 10.1.1.200"
+local-data: "hsar.steampowered.com.edgesuite.net A 10.1.1.250"
 local-zone: "akami.steamstatic.com" redirect
-local-data: "akami.steamstatic.com A 10.1.1.200"
+local-data: "akami.steamstatic.com A 10.1.1.250"
 
 # Riot
-local-data: "lancache-riot A 10.1.1.201"
-local-data: "l3cdn.riotgames.com A 10.1.1.201"
-local-data: "worldwide.l3cdn.riotgames.com A 10.1.1.201"
+local-data: "l3cdn.riotgames.com A 10.1.1.250"
+local-data: "worldwide.l3cdn.riotgames.com A 10.1.1.250"
 
 # Blizzard
-local-data: "lancache-blizzard A 10.1.1.202"
-local-data: "dist.blizzard.com.edgesuite.net A 10.1.1.202"
-local-data: "llnw.blizzard.com A 10.1.1.202"
-local-data: "dist.blizzard.com A 10.1.1.202"
+local-data: "dist.blizzard.com.edgesuite.net A 10.1.1.250"
+local-data: "llnw.blizzard.com A 10.1.1.250"
+local-data: "dist.blizzard.com A 10.1.1.250"
 
 # Sony
-local-data: "lancache-sony A 10.1.1.203"
-local-data: "pls.patch.station.sony.com A 10.1.1.203"
+local-data: "pls.patch.station.sony.com A 10.1.1.250"
 
 # Windows Update
-local-data: "lancache-winupdate A 10.1.1.204"
 local-zone: "windowsupdate.com" redirect
-local-data: "windowsupdate.com A 10.1.1.204"
+local-data: "windowsupdate.com A 10.1.1.250"
 local-zone: "dl.delivery.mp.microsoft.com" redirect
-local-data: "dl.delivery.mp.microsoft.com A 10.1.1.204"
+local-data: "dl.delivery.mp.microsoft.com A 10.1.1.250"
 ```
