@@ -9,7 +9,7 @@ WWW_USER="www-data"
 echo "Creating cache data directory: $PATH_CACHE"
 mkdir -p $PATH_CACHE
 cd $PATH_CACHE
-mkdir -p installs other tmp
+mkdir -p installs other tmp steam-servers
 
 echo "Creating logs directory: $PATH_LOGS"
 mkdir -p $PATH_LOGS
