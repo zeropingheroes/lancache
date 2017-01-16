@@ -1,0 +1,13 @@
+fastcgi.conf
+fastcgi.conf.default
+fastcgi_params
+fastcgi_params.default
+koi-utf
+koi-win
+mime.types.default
+nginx.conf.default
+scgi_params
+scgi_params.default
+uwsgi_params
+uwsgi_params.default
+win-utf
