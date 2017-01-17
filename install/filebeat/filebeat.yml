@@ -1,0 +1,8 @@
+filebeat.prospectors:
+- input_type: log
+  paths:
+    - /var/lancache/logs/*.log
+  document_type: lancache
+
+output.logstash:
+  hosts: ["10.1.1.240:5044"]
