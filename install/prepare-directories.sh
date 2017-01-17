@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e # abort script if there is an error
 
-PATH_CACHE="/var/lancache/cache"
 PATH_CONFIG="/etc/nginx"
+PATH_CACHE="/var/lancache/cache"
 PATH_LOGS="/var/lancache/logs"
 WWW_USER="www-data"
 
