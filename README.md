@@ -77,7 +77,11 @@ have been using the cache, set up Filebeat and ELK to parse logs and show visual
 
 # Contributing
 
-Please submit pull requests to useful changes and enhancements. For example:
+Please submit pull requests to useful changes and enhancements.
+
+I'd reccomend you read [Nginx's Caching blog post](https://www.nginx.com/blog/nginx-high-performance-caching/) to understand caching before diving straight in.
+
+Below are a few ways you can help:
 
 ## Caching Another Content Provider
 
