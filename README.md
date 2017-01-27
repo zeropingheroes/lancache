@@ -7,6 +7,7 @@ Forked from [Lochnair/lancache](https://github.com/Lochnair/lancache)
 
 * Ubuntu 16.04
 * [A DNS server to redirect clients to the cache](https://github.com/zeropingheroes/lancache-dns)
+* [sniproxy](https://github.com/zeropingheroes/lancache-sniproxy) to serve HTTPS requests
 
 # Installation
 
