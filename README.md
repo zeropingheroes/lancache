@@ -43,17 +43,29 @@ Start Nginx:
 
 `systemctl start nginx`
 
-# Enabling/Disabling Caches
+# Configuration & Usage
 
-## Enabling
+## Maximum Cache Size
+
+To limit how much space the cache data folder can use, edit:
+
+`includes/proxy-cache-paths.conf`
+
+Adjust `max_size=1000g` to fit your needs.
+
+## Enabling/Disabling Caches
+
+### Enabling
 
 `ln -s /etc/nginx/caches-available/cache-name.conf /etc/nginx/caches-enabled/cache-name.conf`
 
-## Disabling
+### Disabling
 
 `rm /etc/nginx/caches-enabled/cache-name.conf`
 
-# Clearing Cache
+## Clearing Cache
+
+To completely clear everything in the cache, run
 
 `/etc/nginx/scripts/clear-cache.sh`
 
