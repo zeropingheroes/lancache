@@ -88,6 +88,21 @@ have been using the cache, set up Filebeat and ELK to parse logs and show visual
 
 2. Set up [zeropingheroes/lancache-elk](https://github.com/zeropingheroes/lancache-elk)
 
+# Known Issues
+
+## Cache Corruption
+In the very unlikely event that the cache stores and serves up a corrupted file, only some download clients handle this helpfully for us:
+
+* **Blizzard** - **OK** - Re-requests the file with headers `Pragma: no-cache` and `Cache-control: no-cache` which causes Nginx to bypass the cache and request a fresh copy of the file from upstream 
+* **Origin** - **Not OK** - All requests are sent with `Pragma: no-cache` and `Cache-control: no-cache` and we ignore these or nothing would be cached. If a file is corrupt in the cache there is no mechanism for the Origin client to request Nginx fetches a fresh copy of the file from upstream
+* **Windows Update** - **Untested**
+* **Riot** - **Untested**
+* **Steam** - Steam will re-requests a corrupt file from the cache, but will never send `Pragma: no-cache` and `Cache-control: no-cache` headers
+
+## Incorrect Cache Hit/Miss Stats for Blizzard and Origin
+Because we use `slice` for these upstreams, Nginx reports a cache hit for almost all requests from clients, as the single client request has spawned one or more subrequests which fill the cache.
+If you have a workaround for this behaviour, please submit a pull request. 
+
 # Contributing
 
 Please submit pull requests to useful changes and enhancements.
