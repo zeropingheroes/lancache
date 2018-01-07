@@ -1,0 +1,8 @@
+server {
+    listen *;
+
+    access_log $CACHE_LOGS_DIRECTORY/origin-access.log lancache-default buffer=128k flush=5s;
+    error_log $CACHE_LOGS_DIRECTORY/origin-error.log;
+
+    include upstreams/origin.conf;
+}

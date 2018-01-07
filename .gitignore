@@ -1,3 +1,4 @@
+# Ignore default nginx config files
 fastcgi.conf
 fastcgi.conf.default
 fastcgi_params
@@ -11,3 +12,14 @@ scgi_params.default
 uwsgi_params
 uwsgi_params.default
 win-utf
+
+# Ignore temporary files
+*.swp
+
+# Ignore the env vars
+.env
+
+# Ignore the files generated from templates
+includes/proxy-cache-paths.conf
+nginx.conf
+caches-available/*conf

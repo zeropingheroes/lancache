@@ -1,7 +1,7 @@
 user www-data www-data;
 worker_processes auto;
 
-error_log /var/lancache/logs/nginx-error.log;
+error_log ${CACHE_LOGS_DIRECTORY}/nginx-error.log;
 
 events {
     worker_connections 8192;
@@ -13,8 +13,8 @@ http {
     include mime.types;
     include includes/log-formats.conf;
 
-    access_log /var/lancache/logs/nginx-access.log lancache-default buffer=128k flush=5s;
-    error_log /var/lancache/logs/nginx-error.log;
+    access_log ${CACHE_LOGS_DIRECTORY}/nginx-access.log lancache-default buffer=128k flush=5s;
+    error_log ${CACHE_LOGS_DIRECTORY}/nginx-error.log;
 
     sendfile on;
     sendfile_max_chunk 512k;
