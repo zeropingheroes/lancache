@@ -23,3 +23,6 @@ win-utf
 includes/proxy-cache-paths.conf
 nginx.conf
 caches-available/*conf
+
+# Ignore files generated from `uklans/cache-domains` git repo
+upstreams/*-domains.conf
