@@ -33,6 +33,7 @@ UPSTREAMS_DIR="/etc/nginx/upstreams"
 for CACHE_CONFIG in /etc/nginx/caches-available/*.templ; do /usr/bin/envsubst '$CACHE_LOGS_DIRECTORY' < $CACHE_CONFIG > ${CACHE_CONFIG/.templ/}; done
 
 # Get domains from `uklans/cache-domains` GitHub repo
+rm -rf /var/git/lancache-cache-domains
 /usr/bin/git clone https://github.com/uklans/cache-domains.git /var/git/lancache-cache-domains
 
 # Create domain configs from text files
