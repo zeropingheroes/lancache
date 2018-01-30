@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PATH_CACHE="/var/lancache/cache"
+PATH_CACHE="/var/lancache/data"
 PATH_LOGS="/var/lancache/logs"
 
 echo "Stopping nginx"
