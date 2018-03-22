@@ -1,7 +1,7 @@
 server {
     listen *;
 
-    access_log $CACHE_LOGS_DIRECTORY/blizzard-access.log lancache-default buffer=128k flush=5s;
+    access_log $CACHE_LOGS_DIRECTORY/blizzard-access.log cache-key-uri-slice-range buffer=128k flush=5s;
     error_log $CACHE_LOGS_DIRECTORY/blizzard-error.log;
 
     include upstreams/blizzard.conf;
