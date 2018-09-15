@@ -12,19 +12,20 @@ Forked with thanks from [Lochnair/lancache](https://github.com/Lochnair/lancache
 
 # Installation
 
+## Automatic
+
+Use [`lancache-installer`](https://github.com/zeropingheroes/lancache-installer)
+
+## Manual
+
 1. `sudo -i`
-
-2. `git clone https://github.com/zeropingheroes/lancache.git /etc/nginx`
-
-3. `cd /etc/nginx`
-
-4. `cp .env.example .env`
-
-5. `nano .env`
-
-6. `./prepare-configs.sh`
-
-7. `systemctl restart nginx`
+2. `rm -rf /etc/nginx/`
+3. `git clone https://github.com/zeropingheroes/lancache.git /etc/nginx`
+4. `cd /etc/nginx`
+5. `cp .env.example .env`
+6. `nano .env`
+7. `./prepare-configs.sh`
+8. `systemctl restart nginx`
 
 # Enabling & Disabling Caches
 
