@@ -38,7 +38,7 @@ rm -rf /var/git/lancache-cache-domains
 
 # Create domain configs from text files
 echo "server_name " | cat - $DOMAINS_DIR/blizzard.txt > $UPSTREAMS_DIR/blizzard-domains.conf
-# echo "server_name " | cat - $DOMAINS_DIR/origin.txt > $UPSTREAMS_DIR/origin-domains.conf 
+echo "server_name " | cat - $DOMAINS_DIR/origin.txt > $UPSTREAMS_DIR/origin-domains.conf
 echo "server_name " | cat - $DOMAINS_DIR/riot.txt > $UPSTREAMS_DIR/riot-domains.conf
 echo "server_name " | cat - $DOMAINS_DIR/steam.txt > $UPSTREAMS_DIR/steam-domains.conf
 echo "server_name " | cat - $DOMAINS_DIR/windowsupdates.txt > $UPSTREAMS_DIR/winupdate-domains.conf
