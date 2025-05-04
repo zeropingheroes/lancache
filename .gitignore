@@ -18,11 +18,3 @@ win-utf
 
 # Ignore the env vars
 .env
-
-# Ignore the files generated from templates
-includes/proxy-cache-paths.conf
-nginx.conf
-caches-available/*conf
-
-# Ignore files generated from `uklans/cache-domains` git repo
-upstreams/*-domains.conf
