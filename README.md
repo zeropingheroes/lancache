@@ -1,26 +1,36 @@
 # LANcache
 Automatically cache game files and updates at LAN parties using [Nginx](http://nginx.org/) as a reverse proxy.
 
-Forked with thanks from [Lochnair/lancache](https://github.com/Lochnair/lancache)
+Forked with thanks from [Lochnair/lancache](https://github.com/Lochnair/lancache).
+
 Credit to [lancachenet](https://lancache.net) for all their work on content caching for LANs.
 
 # Requirements
 
-* Ubuntu 24.04
-* [A DNS server to redirect clients to the cache](https://github.com/lancachenet/lancache-dns)
+* Ubuntu Server 24.04
+* A DNS server to redirect clients to the cache:
+  * [zeropingheroes/lancache-dns-unbound](https://github.com/zeropingheroes/lancache-dns-unbound)
+  * [lancachenet/lancache-dns](https://github.com/lancachenet/lancache-dns)
 
 # Setup
 
-1. `sudo -i`
-2. `apt install nginx`
-3. `mv /etc/nginx /etc/nginx.default`
-4. `git clone git@github.com:zeorpingheroes/lancache.git /etc/nginx`
-5. `systemctl start nginx`
+## Install Nginx
+`apt install nginx`
 
-# Enabling & Disabling Caches
+## Install lancache configuration
+1. `mv /etc/nginx /etc/nginx.default`
+2. `git clone git@github.com:zeorpingheroes/lancache.git /etc/nginx`
 
-Simply create and remove symlinks from `caches-available/` to `caches-enabled`
+## Prepare cache directories
+1. `mkdir -p /srv/lancache/logs /srv/lancache/data /srv/lancache/tmp`
+2. `chown -r www-data:www-data /srv/lancache`
 
-- `ln -s /etc/nginx/caches-available/cache-name.conf /etc/nginx/caches-enabled/cache-name.conf`
+To use a different directory, find and replace in the config files:
 
-- `rm /etc/nginx/caches-enabled/cache-name.conf`
+`find /etc/nginx -type f -name "*.conf" -print0 | xargs -0 sed -i'' -e 's|/srv/lancache|/your/path|g'`
+
+## Test the configuration
+`nginx -t`
+
+## Start Nginx
+`systemctl start nginx`
